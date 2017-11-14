@@ -1,0 +1,34 @@
+<dx-data-grid
+	(onCellPrepared)="options.onCellPrepared($event)"
+	[dataSource]="options.dataSource">
+	<div *ngFor="let column of options.columns">
+		<dxi-column
+			[dataField]="column.dataField"
+			[allowFiltering]="column.allowFiltering"
+			[allowEditing]="column.allowEditing"
+			[dataType]="column.dataType"
+			[format]="options.format"
+			[caption]="column.caption"
+			[cellTemplate]="options.getTemplate(column.cellTemplate)">
+		</dxi-column>
+	</div>
+	<dxo-header-filter
+		[visible]="options.headerFilters">
+	</dxo-header-filter>
+	<dxo-filter-row
+		[visible]="options.filters">
+	</dxo-filter-row>
+	<dxo-selection
+		[mode]="options.selectionMode"
+		[showCheckBoxesMode]="options.selectionCheckboxes">
+	</dxo-selection>
+	<dxo-editing
+		[mode]="options.editingMode"
+		[allowUpdating]="options.allowUpdating"
+		[allowDeleting]="options.allowDeleting"
+		[allowAdding]="options.allowAdding">
+	</dxo-editing>
+	<dxo-paging
+		[pageSize]="options.paging">
+	</dxo-paging>
+</dx-data-grid>

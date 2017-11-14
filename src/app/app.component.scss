@@ -1,0 +1,73 @@
+/deep/ .section{
+	padding: 10px 0 20px;
+	h2{
+		font-size: 21px;
+		font-family: 'ArialMT', 'Arial', sans-serif;
+		font-weight: 400;
+		margin: 0 0 20px;
+	}
+	.title-row{
+		overflow: hidden;
+	}
+	.button-filters-reset{
+		float: right;
+	}
+	p{margin: 0 0 20px;}
+	.buttons{
+		margin-bottom: 10px;
+
+		&.status-buttons{
+			display: flex;
+			.button{
+				border: 1px solid #ddd;
+				text-align: center;
+				cursor: pointer;
+				color: #fff;
+				flex: 1 1 auto;
+				margin-left: 10px;
+				min-height: 80px;
+				&:hover{
+					box-shadow: 0 0 10px #666 inset;
+				}
+				&:first-child{
+					margin-left: 0;
+				}
+				&.status-drafts{
+					background-color: #99A9B4;
+				}
+				&.status-received,
+				&.status-submitted{
+					background-color: #8AD4DF;
+				}
+				&.status-pre-processing,
+				&.status-approved{
+					background-color: #C1D72D;
+				}
+				&.status-review,
+				&.status-other{
+					background-color: #3AB54A;
+				}
+				&.status-post-processing,
+				&.status-closed{
+					background-color: #106CB7;
+				}
+				&.status-complete{
+					background-color: #6F818F;
+				}
+			}
+			.label{
+				display: block;
+				padding: 10px 0;
+			}
+			.value{
+				display: block;
+				font-size: 20px;
+			}
+		}
+		.dx-button{
+			border-color: #106CB7;
+			color: #106CB7;
+			margin-right: 10px;
+		}
+	}
+}

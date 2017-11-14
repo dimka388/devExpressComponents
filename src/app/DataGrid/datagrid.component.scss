@@ -1,0 +1,66 @@
+/deep/ .dx-datagrid-headers,
+/deep/ .dx-datagrid-rowsview,
+/deep/ .dx-datagrid-pager,
+/deep/ .dx-datagrid-rowsview .dx-datagrid-table .dx-freespace-row{
+	border: none;
+}
+/deep/ .dx-datagrid-content .dx-datagrid-table .dx-row {
+	> td{
+		border: 1px solid #CAD4DD;
+		border-width: 0 0 1px;
+		white-space: normal;
+		vertical-align: middle;
+		a{
+			text-decoration: none;
+			color: #106CB7;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		.status-draft{
+			color: #99A9B4;
+		}
+		.status-received,
+		.status-submitted{
+			color: #8AD4DF;
+		}
+		.status-pre-processing,
+		.status-approved{
+			color: #C1D72D;
+		}
+		.status-review,
+		.status-other{
+			color: #3AB54A;
+		}
+		.status-post-processing,
+		.status-closed{
+			color: #106CB7;
+		}
+		.status-complete{
+			color: #6F818F;
+		}
+		.placeholder{
+			color: #bbb;
+		}
+	}
+	.dx-editor-cell{
+		padding: 5px;
+	}
+	.dx-command-select{
+		text-align: left !important;
+		min-width: 30px;
+		width: 30px;
+	}
+}
+/deep/ .dx-editor-cell .dx-texteditor .dx-texteditor-input{
+	border: 1px solid #ddd;
+}
+/deep/ .dx-datagrid-headers .dx-datagrid-table .dx-header-row > td{
+	border-width: 0 0 2px;
+}
+/deep/ .dx-datagrid-rowsview .dx-datagrid-table .dx-freespace-row{
+	height: auto !important;
+	> td{
+		border: none;
+	}
+}

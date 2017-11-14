@@ -1,0 +1,38 @@
+<dx-tree-list
+	[dataSource]="options.dataSource"
+	[itemsExpr]="options.itemsExpr"
+	[dataStructure]="options.dataStructure">
+	<div *ngFor="let column of options.columns">
+		<dxi-column
+			[dataField]="column.dataField"
+			[allowFiltering]="column.allowFiltering"
+			[allowEditing]="column.allowEditing"
+			[dataType]="column.dataType"
+			[format]="options.format"
+			[caption]="column.caption"
+			[cellTemplate]="column.cellTemplate">
+		</dxi-column>
+	</div>
+	<dxo-header-filter
+		[visible]="options.headerFilters">
+	</dxo-header-filter>
+	<dxo-filter-row
+		[visible]="options.filters">
+	</dxo-filter-row>
+	<dxo-selection
+		[mode]="options.selectionMode"
+		[showCheckBoxesMode]="options.selectionCheckboxes">
+	</dxo-selection>
+	<dxo-editing
+		[mode]="options.editingMode"
+		[allowUpdating]="options.allowUpdating"
+		[allowDeleting]="options.allowDeleting"
+		[allowAdding]="options.allowAdding">
+	</dxo-editing>
+	<a href="{{data.value}}" *dxTemplate="let data of 'linkTemplate'">
+		{{data.value}}
+	</a>
+	<span *dxTemplate="let data of 'statusTemplate'" [class]="'status-' + (data.value | lowercase)">
+		{{data.value}}
+	</span>
+</dx-tree-list>

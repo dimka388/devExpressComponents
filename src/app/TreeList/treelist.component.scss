@@ -1,0 +1,55 @@
+/deep/ .dx-treelist{
+	height: 376px;
+}
+/deep/ .dx-treelist-headers,
+/deep/ .dx-treelist-rowsview,
+/deep/ .dx-treelist-pager,
+/deep/ .dx-treelist-rowsview .dx-treelist-table .dx-freespace-row{
+	border: none;
+}
+/deep/ .dx-treelist-content .dx-treelist-table .dx-row {
+	> td{
+		border: 1px solid #CAD4DD;
+		border-width: 0 0 1px;
+		white-space: normal;
+		vertical-align: middle;
+		a{
+			text-decoration: none;
+			color: #106CB7;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		.placeholder{
+			color: #bbb;
+		}
+	}
+	.dx-editor-cell{
+		padding: 5px;
+	}
+	.dx-command-select{
+		text-align: left !important;
+		min-width: 30px;
+		width: 30px;
+	}
+	&[aria-expanded] {
+		.dx-select-checkbox{
+			display: none;
+		}
+		.dx-treelist-collapsed,
+		.dx-treelist-expanded{
+			left: 18px;
+		}
+	}
+}
+/deep/ .dx-treelist-rowsview .dx-treelist-table .dx-freespace-row{
+	> td{
+		border: none;
+	}
+}
+/deep/ .dx-editor-cell .dx-texteditor .dx-texteditor-input{
+	border: 1px solid #ddd;
+}
+/deep/ .dx-treelist-headers .dx-treelist-table .dx-header-row > td{
+	border-width: 0 0 2px;
+}
