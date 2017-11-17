@@ -45,11 +45,19 @@
 	}
 	.dx-editor-cell{
 		padding: 5px;
+		.dx-editor-with-menu .dx-texteditor-input{
+			padding-left: 7px;
+			padding-right: 32px;
+		}
 	}
 	.dx-command-select{
 		text-align: left !important;
 		min-width: 30px;
 		width: 30px;
+	}
+	.dx-menu {
+		left: auto;
+		right: 0;
 	}
 }
 /deep/ .dx-editor-cell .dx-texteditor .dx-texteditor-input{
@@ -57,6 +65,10 @@
 }
 /deep/ .dx-datagrid-headers .dx-datagrid-table .dx-header-row > td{
 	border-width: 0 0 2px;
+	.dx-datagrid-text-content{
+		white-space: normal;
+		text-align: left;
+	}
 }
 /deep/ .dx-datagrid-rowsview .dx-datagrid-table .dx-freespace-row{
 	height: auto !important;

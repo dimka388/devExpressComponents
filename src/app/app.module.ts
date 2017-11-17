@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DataGridComponent } from './DataGrid/datagrid.component';
 import { DataGridService } from './DataGrid/datagrid.service';
+import { LightDataGridComponent } from './LightDataGrid/lightdatagrid.component';
+import { HeavyDataGridComponent } from './HeavyDataGrid/heavydatagrid.component';
 import { TreeListComponent } from './TreeList/treelist.component';
 import { StydiesListingComponent } from './StydiesListing/stydieslisting.component';
 import { SitesListingComponent } from './SitesListing/siteslisting.component';
@@ -37,6 +39,8 @@ import { DevExtremeModule,
 	declarations: [
 		AppComponent,
 		DataGridComponent,
+		LightDataGridComponent,
+		HeavyDataGridComponent,
 		TreeListComponent,
 		StydiesListingComponent,
 		SitesListingComponent,

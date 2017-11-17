@@ -12,6 +12,7 @@ export class TreeListComponent implements OnInit {
 	@Input() customOptions: any;
 
 	private options: any;
+
 	private defaultOptions: any = {
 		format: {
 			formatter: (date) => {

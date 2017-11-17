@@ -29,7 +29,8 @@ export class SitesListingComponent {
 				dataType: 'number',
 				allowFiltering: false,
 				caption: 'Number of Contacts',
-				cellTemplate: 'link'
+				cellTemplate: 'link',
+				alignment: 'center'
 			}
 		]
 	};

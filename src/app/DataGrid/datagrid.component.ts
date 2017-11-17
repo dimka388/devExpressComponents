@@ -14,6 +14,8 @@ export class DataGridComponent implements OnInit {
 	@ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
 	@Input() customOptions: any;
 
+	public options : any = {};
+
 	private cellTemplates: any = {
 		link: (container, options) => {
 			return container.append(`
@@ -33,6 +35,7 @@ export class DataGridComponent implements OnInit {
 
 	private defaultOptions: any = {
 		componentId: null,
+		columnAutoWidth: true,
 		filters: false,
 		headerFilters: false,
 		selectionMode: 'none',
@@ -68,8 +71,6 @@ export class DataGridComponent implements OnInit {
 		},
 		getTemplate: (template) => this.cellTemplates[template] || template
 	};
-
-	public options : any = {};
 
 	ngOnInit() {
 		this.options = Object.assign(this.defaultOptions, this.customOptions);

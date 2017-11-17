@@ -1,15 +1,1 @@
-<div class="section">
-	<div class="title-row">
-		<dx-button class="button-filters-reset" (click)="resetClickHandler()" text="Clear filters"></dx-button>
-		<h2>{{title}}</h2>
-	</div>
-	<div class="buttons status-buttons">
-		<span [class]="'button status-' + (button.label | lowercase)"
-			*ngFor="let button of statusButtons"
-			(click)="buttonClickHandler(button)">
-			<span class="label">{{button.label}}</span>
-			<span class="value">{{button.value}}</span>
-		</span>
-	</div>
-	<data-grid [customOptions]="dataGridOptions"></data-grid>
-</div>
+<heavy-data-grid [options]="dataGridOptions" [buttons]="statusButtons" [title]="title"></heavy-data-grid>

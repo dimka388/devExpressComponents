@@ -14,9 +14,13 @@ import { RandomID } from '../common/index';
 
 export class StydiesListingComponent implements AfterViewInit {
 	private title: string = 'Studies';
+
 	private dataGrid: any;
+
 	private statusButtons: any = [];
+
 	private statuses: any = ["Submitted", "Approved", "Closed"];
+
 	private customStatus: string = 'Other';
 
 	private getStatusClass: any = (value) => {
@@ -48,8 +52,9 @@ export class StydiesListingComponent implements AfterViewInit {
 				dataField: 'NumberOfSites',
 				dataType: 'number',
 				caption: 'Number of Sites',
-				cellTemplate: 'link',
-				allowFiltering: false
+				allowFiltering: false,
+				width: 90,
+				alignment: 'center'
 			},
 			{
 				dataField: 'Status',
@@ -64,11 +69,13 @@ export class StydiesListingComponent implements AfterViewInit {
 			{
 				dataField: 'DateOfInitialApproval',
 				dataType: 'date',
+				filterOperations: [],
 				caption: 'Date of Initial Approval'
 			},
 			{
 				dataField: 'DateOfLastReview',
 				dataType: 'date',
+				filterOperations: [],
 				caption: 'Date of Last Review'
 			},
 			{
@@ -76,24 +83,25 @@ export class StydiesListingComponent implements AfterViewInit {
 				dataType: 'number',
 				cellTemplate: 'link',
 				caption: 'Available submissions',
-				allowFiltering: false
+				allowFiltering: false,
+				width: 90,
+				alignment: 'center'
 			}
-		]
+		],
+		resetClickHandler: () => {
+			this.dataGrid.instance.clearFilter();
+		},
+		buttonClickHandler: (button) => {
+			if (button.label === this.customStatus) {
+				this.dataGrid.instance.filter((data) => this.statuses.indexOf(data.Status) < 0);
+			} else {
+				this.dataGrid.instance.filter(["Status", "=", button.label]);
+			}
+		}
 	};
+
 	ngAfterViewInit() {
 		this.dataGrid = this.dataGridService.getInstance(this.dataGridOptions.componentId);
-	}
-
-	resetClickHandler = () => {
-		this.dataGrid.instance.clearFilter();
-	}
-
-	buttonClickHandler = (button) => {
-		if (button.label === this.customStatus) {
-			this.dataGrid.instance.filter((data) => this.statuses.indexOf(data.Status) < 0);
-		} else {
-			this.dataGrid.instance.filter(["Status", "=", button.label]);
-		}
 	}
 
 	constructor(

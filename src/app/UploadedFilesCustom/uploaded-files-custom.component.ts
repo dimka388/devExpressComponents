@@ -8,20 +8,24 @@ import { Service } from './uploaded-files-custom.service';
 })
 
 export class UploadedFilesCustomComponent {
-	private buttons: any;
+	private title: string = 'Uploaded files (New Submission)';
+
+	private buttons: string[] = [
+		'UPLOAD MORE FILES',
+		'EDIT',
+		'DOWNLOAD',
+		'DELETE'
+	];
 
 	private cellNameTemplate: any = (container, options) => {
 		let state = !options.value.length || options.value === options.data['FileName'];
-		if (state) {
-			container.append(`<em class="placeholder">${this.dataGridOptions.placeholderText}</em>`);
-		} else {
-			container.append(options.value);
-		}
+		let value = state ? `<em class="placeholder">${this.dataGridOptions.placeholderText}</em>` : options.value;
+		container.append(value);
 	};
 
 	private dataGridOptions: any = {
 		placeholderText: 'Same as File Name',
-		allowUpdating: false,
+		selectionMode: 'multiple',
 		columns: [
 			{
 				dataField:'FileName',
@@ -39,7 +43,6 @@ export class UploadedFilesCustomComponent {
 	};
 
 	constructor(private service: Service) {
-		this.buttons = service.getButtons();
 		this.dataGridOptions.dataSource = service.getItems();
 	}
 }

@@ -14,7 +14,9 @@ import { RandomID } from '../common/index';
 
 export class SubmissionListingComponent implements AfterViewInit {
 	private title: string = 'Submission';
+
 	private dataGrid: any;
+
 	private statusButtons: any = [];
 
 	private dataGridOptions: any = {
@@ -47,21 +49,20 @@ export class SubmissionListingComponent implements AfterViewInit {
 			{
 				dataField: 'SubmittedDate',
 				dataType: 'date',
+				filterOperations: [],
 				caption: 'Date Submitted'
 			}
-		]
+		],
+		resetClickHandler: () => {
+			this.dataGrid.instance.clearFilter();
+		},
+		buttonClickHandler: (button) => {
+			this.dataGrid.instance.filter(["Status", "=", (button.filter || button.label)]);
+		}
 	};
 
 	ngAfterViewInit() {
 		this.dataGrid = this.dataGridService.getInstance(this.dataGridOptions.componentId);
-	}
-
-	resetClickHandler = () => {
-		this.dataGrid.instance.clearFilter();
-	}
-
-	buttonClickHandler = (button) => {
-		this.dataGrid.instance.filter(["Status", "=", (button.filter || button.label)]);
 	}
 
 	constructor(

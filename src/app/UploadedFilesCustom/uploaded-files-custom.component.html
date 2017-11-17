@@ -1,1 +1,10 @@
-<uploaded-files [customOptions]="dataGridOptions" [customButtons]="buttons"></uploaded-files>
+<div class="section">
+	<h2>{{title}}</h2>
+	<div class="buttons">
+		<dx-button
+			*ngFor="let button of buttons"
+			[text]="button">
+		</dx-button>
+	</div>
+	<light-data-grid [customOptions]="dataGridOptions"></light-data-grid>
+</div>

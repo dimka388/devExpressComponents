@@ -14,12 +14,22 @@ export class Item {
 	SubmittedDate: string;
 }
 
+export class Button {
+	label: string;
+	filter?: string;
+	value: number;
+}
+
 @Injectable()
 
 export class Service {
 	private itemsURL: string = 'http://59f734d6d85fbd0012ee2235.mockapi.io/stydies-listing';
+
 	private items : Item[];
-	private buttons = [
+
+	private customButton: string = 'Other';
+
+	private buttons : Button[] = [
 		{
 			"label": "Submitted",
 			"value": 0
@@ -37,7 +47,7 @@ export class Service {
 			"value": 0
 		}
 	];
-	private customButton: string = 'Other';
+
 
 	public getItems: any = () => {
 		return new DataSource({
@@ -49,13 +59,15 @@ export class Service {
 						return this.items;
 					});
 			}
-		});
+		})
 	};
+
 	public getButtons: any = (statuses) => {
 		let customButton = this.buttons.filter((button) => button.label.indexOf(this.customButton) > -1);
 		this.items.map((item: Item) => {
 			let label = item.Status;
 			let button = this.buttons.filter((button) => button.label.indexOf(label) > -1);
+
 			if (button.length) {
 				button[0].value++;
 			} else {
@@ -63,7 +75,8 @@ export class Service {
 					customButton[0].value++;
 				}
 			}
-		});
+		})
+
 		return this.buttons;
 	};
 

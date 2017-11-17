@@ -1,5 +1,6 @@
 <dx-data-grid
 	(onCellPrepared)="options.onCellPrepared($event)"
+	[columnAutoWidth]="options.columnAutoWidth"
 	[dataSource]="options.dataSource">
 	<div *ngFor="let column of options.columns">
 		<dxi-column
@@ -9,6 +10,9 @@
 			[dataType]="column.dataType"
 			[format]="options.format"
 			[caption]="column.caption"
+			[width]="column.width"
+			[alignment]="column.alignment"
+			[filterOperations]="column.filterOperations"
 			[cellTemplate]="options.getTemplate(column.cellTemplate)">
 		</dxi-column>
 	</div>

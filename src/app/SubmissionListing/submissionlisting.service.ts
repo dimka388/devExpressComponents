@@ -14,12 +14,20 @@ export class Item {
 	SubmittedDate: string;
 }
 
+export class Button {
+	label: string;
+	filter?: string;
+	value: number;
+}
+
 @Injectable()
 
 export class Service {
 	private itemsURL: string = 'https://59f734d6d85fbd0012ee2235.mockapi.io/submission';
+
 	private items : Item[];
-	private buttons = [
+
+	private buttons : Button[] = [
 		{
 			"label": "Drafts",
 			"filter": "Draft",
@@ -59,6 +67,7 @@ export class Service {
 			}
 		});
 	};
+
 	public getButtons: any = () => {
 		this.items.map((item: Item) => {
 			let label = item.Status;

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Service } from './uploaded-files.service';
 
 @Component({
@@ -7,26 +7,24 @@ import { Service } from './uploaded-files.service';
 	templateUrl: '../UploadedFiles/uploaded-files.component.html'
 })
 
-export class UploadedFilesComponent implements OnInit {
-	@Input() customOptions: any;
-	@Input() customButtons: any;
-
+export class UploadedFilesComponent {
 	private title: string = 'Uploaded files';
 
-	private buttons: any;
+	private buttons: string[] = [
+		'UPLOAD MORE FILES',
+		'DOWNLOAD',
+		'DELETE'
+	];
 
 	private cellNameTemplate: any = (container, options) => {
 		let state = !options.value.length || options.value === options.data['FileName'];
-		if (state) {
-			container.append(`<em class="placeholder">${this.dataGridOptions.placeholderText}</em>`);
-		} else {
-			container.append(options.value);
-		}
+		let value = state ? `<em class="placeholder">${this.dataGridOptions.placeholderText}</em>` : options.value;
+		container.append(value);
 	};
 
 	private dataGridOptions: any = {
-		selectionMode: 'multiple',
 		placeholderText: 'Same as File Name',
+		selectionMode: 'multiple',
 		allowUpdating: true,
 		columns: [
 			{
@@ -40,17 +38,7 @@ export class UploadedFilesComponent implements OnInit {
 		]
 	};
 
-	ngOnInit() {
-		if (this.customOptions) {
-			this.dataGridOptions = {...this.dataGridOptions, ...this.customOptions};
-		}
-		if (this.customButtons) {
-			this.buttons = this.customButtons;
-		}
-	}
-
 	constructor(private service: Service) {
 		this.dataGridOptions.dataSource = service.getItems();
-		this.buttons = service.getButtons();
 	}
 }
