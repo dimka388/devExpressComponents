@@ -37,7 +37,13 @@ export class SubmissionListingComponent implements AfterViewInit {
 			},
 			{
 				dataField: 'Study',
-				cellTemplate: 'link'
+				cellTemplate: (container, options) => {
+					let value = options.value;
+					if (value.length > 70) {
+						value = value.slice(0, 70) + '...';
+					}
+					container.append(`<a href="${options.value}" title="${options.value}">${value}</a>`); 
+				}
 			},
 			{
 				dataField: 'Site',
